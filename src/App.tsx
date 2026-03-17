@@ -135,8 +135,7 @@ const Hero = () => {
           <img 
             src="/hero-bg.jpg" 
             alt="Hero Background" 
-            className="w-full h-full object-cover object-center opacity-70"
-            referrerPolicy="no-referrer"
+            className="w-full h-full object-cover object-center opacity-100"
           />
         </motion.div>
 
@@ -146,7 +145,7 @@ const Hero = () => {
         
         {/* Noise & Vignette */}
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-30 mix-blend-overlay" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-[#050505]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-[#020202]" />
       </div>
 
       <motion.div style={{ y, opacity }} className="z-10 text-center px-6">
