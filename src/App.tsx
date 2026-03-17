@@ -271,9 +271,9 @@ const InternshipCard = ({ internship, index }: any) => {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0.1, y: 50 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className={`flex flex-col md:flex-row gap-12 md:gap-20 items-center mb-40 last:mb-0 ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}
+      className="flex flex-col mb-32 last:mb-0"
     >
-      <div className="flex-1 w-full">
+      <div className="w-full">
         <div className="flex items-center gap-4 mb-6">
           <span className="text-emerald-500 font-mono text-xs font-bold">0{index + 1}</span>
           <div className="h-[1px] w-12 bg-emerald-500/30" />
@@ -301,39 +301,6 @@ const InternshipCard = ({ internship, index }: any) => {
             <p className="text-sm text-white/80 italic font-serif">{internship.project}</p>
           </div>
         )}
-      </div>
-      <div className="flex-1 w-full aspect-[4/3] glass-card overflow-hidden relative group bg-white/5">
-        {internship.photo && !imgError ? (
-          <div className="w-full h-full">
-            <motion.img 
-              whileHover={{ scale: 1.05 }}
-              src={internship.photo} 
-              alt={internship.company} 
-              className="w-full h-full object-cover transition-all duration-700"
-              referrerPolicy="no-referrer"
-              onError={() => setImgError(true)}
-            />
-          </div>
-        ) : internship.image && !imgError ? (
-          <div className="w-full h-full flex items-center justify-center p-12 md:p-20 bg-white/95">
-            <motion.img 
-              whileHover={{ scale: 1.05 }}
-              src={internship.image} 
-              alt={internship.company} 
-              className="max-w-full max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-700"
-              referrerPolicy="no-referrer"
-              onError={() => setImgError(true)}
-            />
-          </div>
-        ) : (
-          <div className="absolute inset-0 flex items-center justify-center bg-white/95">
-            <div className="text-center">
-              <Building2 size={80} className="mx-auto text-black/5 group-hover:text-emerald-600/10 transition-colors duration-700" />
-              <p className="mt-4 text-[10px] font-mono text-black/20 uppercase tracking-[0.3em] font-bold">{internship.company}</p>
-            </div>
-          </div>
-        )}
-        <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
       </div>
     </motion.div>
   );
