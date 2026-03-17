@@ -476,22 +476,54 @@ const Skills = () => {
             {skills.map((skill, index) => (
               <motion.div 
                 key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.05 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="group p-6 glass-card flex flex-col items-center text-center gap-4 relative overflow-hidden hover:shadow-[0_0_30px_rgba(16,185,129,0.2)] transition-all duration-300 cursor-pointer"
+                initial="hidden"
+                whileInView="visible"
+                whileHover="hover"
+                viewport={{ once: true }}
+                variants={{
+                  hidden: { opacity: 0, scale: 0.9 },
+                  visible: { opacity: 1, scale: 1, transition: { delay: index * 0.05, duration: 0.4 } },
+                  hover: { scale: 1.05, y: -5, boxShadow: "0px 10px 30px rgba(16,185,129,0.3)", transition: { duration: 0.3, ease: "easeOut" } }
+                }}
+                className="p-6 glass-card flex flex-col items-center text-center gap-4 relative overflow-hidden cursor-pointer bg-white/5 border border-white/10 rounded-2xl"
               >
-                <div className="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 group-hover:scale-110 transition-transform duration-300">
+                <motion.div 
+                  variants={{
+                    hidden: { scale: 1, backgroundColor: "rgba(16,185,129,0.1)" },
+                    visible: { scale: 1, backgroundColor: "rgba(16,185,129,0.1)" },
+                    hover: { scale: 1.1, backgroundColor: "rgba(16,185,129,0.2)" }
+                  }}
+                  transition={{ duration: 0.3 }}
+                  className="w-12 h-12 rounded-xl flex items-center justify-center text-emerald-500"
+                >
                   {skill.icon}
-                </div>
-                <span className="text-xs font-semibold tracking-widest text-white/70 uppercase group-hover:text-emerald-400 transition-colors duration-300">{skill.name}</span>
+                </motion.div>
+                <motion.span 
+                  variants={{
+                    hidden: { color: "rgba(255,255,255,0.7)" },
+                    visible: { color: "rgba(255,255,255,0.7)" },
+                    hover: { color: "#34d399" }
+                  }}
+                  transition={{ duration: 0.3 }}
+                  className="text-xs font-semibold tracking-widest uppercase"
+                >
+                  {skill.name}
+                </motion.span>
                 
-                <div className="absolute inset-0 bg-black/90 p-4 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm">
-                  <p className="text-[10px] sm:text-xs text-white/90 leading-relaxed font-medium">
+                <motion.div 
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 0, y: 20 },
+                    hover: { opacity: 1, y: 0 }
+                  }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  className="absolute inset-0 bg-black/95 p-6 flex flex-col items-center justify-center backdrop-blur-md"
+                >
+                  <span className="text-emerald-400 font-bold mb-2 text-[10px] uppercase tracking-widest">{skill.name}</span>
+                  <p className="text-[10px] sm:text-xs text-white/90 leading-relaxed font-medium text-center">
                     {skill.desc}
                   </p>
-                </div>
+                </motion.div>
               </motion.div>
             ))}
           </div>
