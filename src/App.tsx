@@ -21,6 +21,7 @@ import {
   Monitor,
   Bot
 } from 'lucide-react';
+import heroBg from './assets/hero-bg.jpg';
 
 // --- Components ---
 
@@ -133,7 +134,7 @@ const Hero = () => {
           className="absolute inset-0"
         >
           <img 
-            src="/hero-bg.jpg" 
+            src={heroBg} 
             alt="Hero Background" 
             className="w-full h-full object-cover object-center opacity-100"
           />
