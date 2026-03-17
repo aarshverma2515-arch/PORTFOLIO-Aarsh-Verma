@@ -271,9 +271,9 @@ const InternshipCard = ({ internship, index }: any) => {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0.1, y: 50 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className={`flex flex-col lg:flex-row gap-12 lg:gap-20 items-center mb-32 last:mb-0 ${index % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}
+      className="flex flex-col mb-32 last:mb-0"
     >
-      <div className="flex-1 w-full">
+      <div className="w-full">
         <div className="flex items-center gap-4 mb-6">
           <span className="text-emerald-500 font-mono text-xs font-bold">0{index + 1}</span>
           <div className="h-[1px] w-12 bg-emerald-500/30" />
@@ -302,18 +302,6 @@ const InternshipCard = ({ internship, index }: any) => {
           </div>
         )}
       </div>
-      
-      {internship.photo && (
-        <div className="flex-1 w-full max-w-md lg:max-w-none aspect-[4/5] lg:aspect-square rounded-2xl overflow-hidden relative group shadow-2xl border border-white/10">
-          <div className="absolute inset-0 bg-emerald-500/20 mix-blend-overlay z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-          <img 
-            src={internship.photo} 
-            alt={internship.company} 
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            referrerPolicy="no-referrer"
-          />
-        </div>
-      )}
     </motion.div>
   );
 };
