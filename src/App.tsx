@@ -125,6 +125,21 @@ const Hero = () => {
       
       {/* Full Size Background Image */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <motion.div 
+          animate={{ 
+            scale: [1.0, 1.05, 1.0],
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute inset-0"
+        >
+          <img 
+            src="/hero-bg.jpg" 
+            alt="Hero Background" 
+            className="w-full h-full object-cover object-center opacity-50 mix-blend-lighten"
+            referrerPolicy="no-referrer"
+          />
+        </motion.div>
+
         {/* Ambient Lighting */}
         <div className="absolute top-1/4 left-1/4 w-[40vw] h-[40vw] bg-emerald-500/15 rounded-full blur-[120px] mix-blend-screen animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-[50vw] h-[50vw] bg-blue-500/10 rounded-full blur-[150px] mix-blend-screen" />
