@@ -50,7 +50,7 @@ const Navbar = () => {
             <motion.span 
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="font-serif italic text-2xl tracking-tighter text-white block"
+              className="font-serif italic text-2xl tracking-tighter text-emerald-500 block"
             >
               AV.
             </motion.span>
@@ -150,7 +150,7 @@ const Hero = () => {
             12th June | Gemini | 2002
           </motion.div>
           <motion.h1 
-            className="text-5xl sm:text-7xl md:text-9xl font-serif italic mb-8 tracking-tighter leading-none drop-shadow-2xl flex flex-wrap justify-center gap-x-4 sm:gap-x-8 gap-y-2 overflow-hidden"
+            className="text-5xl sm:text-7xl md:text-9xl font-serif italic mb-8 tracking-tighter leading-none drop-shadow-2xl flex flex-wrap justify-center gap-x-4 sm:gap-x-8 gap-y-2 overflow-hidden text-emerald-500"
           >
             {"AARSH VERMA".split(" ").map((word, wordIndex) => (
               <span key={wordIndex} className="flex gap-[0.1em]">
